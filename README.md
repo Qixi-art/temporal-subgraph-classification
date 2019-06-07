@@ -16,7 +16,7 @@ I will work with two datasets:
 2. Stack Exchange network (Directed temporal graph, nodes are users and edges are replies/comments from user A to user B at timestamp t)  
 
 Both of them are constructed from 4 subnetworks (classes) each.
-![Datasets] (https://github.com/ZafirStojanovski/temporal-subgraph-classification/blob/master/datasets.jpg "Datasets")
+![Datasets](https://github.com/ZafirStojanovski/temporal-subgraph-classification/blob/master/datasets.jpg "Datasets")
 ## 2. Sampling
 As for any machine learning problem, we first need to define what the samples are. In this case, we only have the network as a whole for each of the classes. So, we need to break it up.  
 A fairly reasonable way to partition the network is to break it into time-windows with variable sizes that span fixed amount of time - delta.  
