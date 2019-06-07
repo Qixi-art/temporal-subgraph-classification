@@ -11,9 +11,9 @@ I use definitions of temporal networks and temporal network motifs as defined in
 Denote ![formula](https://github.com/ZafirStojanovski/temporal-subgraph-classification/blob/master/formula.png "formula") as a set of *N* subgraphs, where *V* is a set of nodes and *E* is a set of timestamped edges in *G*. Suppose that subgraphs can be categorized in *D* classes, where *D* < *N*. We associate *G* with a label of *L* ∈ {1, ..., *D*}.  
 The idea of network classification is to assign novel subgraphs 𝐺𝑖 to one of the *𝐷* classes (subnetworks).
 
-I will work with two datasets:  
-1. E-mail network (Directed temporal graph, nodes are people and edges are emails sent from employee A to employee B at timestamp t)
-2. Stack Exchange network (Directed temporal graph, nodes are users and edges are replies/comments from user A to user B at timestamp t)  
+I work with two datasets:  
+1. **E-mail network** (Directed temporal graph, nodes are people and edges are emails sent from employee A to employee B at timestamp t)
+2. **Stack Exchange network** (Directed temporal graph, nodes are users and edges are replies/comments from user A to user B at timestamp t)  
 
 Both of them are constructed from 4 subnetworks (classes) each.
 ![Datasets](https://github.com/ZafirStojanovski/temporal-subgraph-classification/blob/master/datasets.jpg "Datasets")
