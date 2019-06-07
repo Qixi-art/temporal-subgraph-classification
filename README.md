@@ -6,7 +6,7 @@ Here, I focus on two alternate views of sampling a temporal network into subgrap
 Experimental results show model improvement varying between 10 and 20%, depending on the network’s density.
 
 ## 1. Problem formulation 
-I use definitions of temporal networks and temporal network motifs as defined in [Paranjape, A., Benson, A.R., Leskovec, J.: Motifs in Temporal Networks. arXiv:1612.09259]. Due to space constraints, here are examples on static and temporal motifs in the following figure, and refer interested readers to the paper for further detail.
+I use definitions of temporal networks and temporal network motifs as defined in *[Paranjape, A., Benson, A.R., Leskovec, J.: Motifs in Temporal Networks. arXiv:1612.09259]*. Due to space constraints, here are examples on static and temporal motifs in the following figure, and refer interested readers to the paper for further detail.
 ![Motif comparison](https://github.com/ZafirStojanovski/temporal-subgraph-classification/blob/master/motif%20comparison.jpg "Motif comparison")
 Denote ![formula](https://github.com/ZafirStojanovski/temporal-subgraph-classification/blob/master/formula.png "formula") as a set of *N* subgraphs, where *V* is a set of nodes and *E* is a set of timestamped edges in *G*. Suppose that subgraphs can be categorized in *D* classes, where *D* < *N*. We associate *G* with a label of *L* ∈ {1, ..., *D*}.  
 The idea of network classification is to assign novel subgraphs 𝐺𝑖 to one of the *𝐷* classes (subnetworks).
@@ -35,7 +35,7 @@ Not only that, but we preserve the overall number of samples in the dataset - if
 ## 3. Embedding
 Now that we have defined what our samples are, we need to embed them - transform them into vectors.  
 I decided to sharpen Ockham’s razor and test the three simplest embedding techniques:  
-1. **Temporal motif distribution** - a vector of 36 values, each one representing the count of the temporal motifs described in the [Paranjape, A., Benson, A.R., Leskovec, J.: Motifs in Temporal Networks. arXiv:1612.09259]
+1. **Temporal motif distribution** - a vector of 36 values, each one representing the count of the temporal motifs described in *[Paranjape, A., Benson, A.R., Leskovec, J.: Motifs in Temporal Networks. arXiv:1612.09259]*
 2. **Static motif distribution** - a vector of 13 values, each one representing the count of the static motifs described in [Kun Tu, Jian Li, Don Towsley, Dave Braines, Liam D. Turner: Network Classification in Temporal Networks Using Motifs. arXiv:1807.03733]
 3. A **combination** of the previous two  
 
