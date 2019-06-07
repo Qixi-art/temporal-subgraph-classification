@@ -2,8 +2,9 @@
 Network classification has a significant role in detecting communities and recognizing patterns within the networks.  
 Most existing work in this area heavily focuses on embedding the networks, without providing much information on the best way of sampling it into subgraphs in the first place.  
 
-Here, I focus on two alternate views of sampling a temporal network into subgraphs in order to achieve maximum classification accuracy.  
-Experimental results show model improvement varying between 10 and 20%, depending on the network’s density.
+Here, I focus on two alternate views of sampling a temporal network into subgraphs in order to achieve maximum classification accuracy. Experimental results show model improvement varying between 10 and 20%, depending on the network’s density.  
+
+While the previous results are expected, we can extract knowledge on how the nodes within the networks interact on a **time scale** - high model improvement means that nodes interact in a larger time frame (captured by the windowing technique explained later) and low model improvement menas that nodes mainly finish interacting within the specified time frame.
 
 ## 1. Problem formulation 
 I use definitions of temporal networks and temporal network motifs as defined in *[Paranjape, A., Benson, A.R., Leskovec, J.: Motifs in Temporal Networks. arXiv:1612.09259]*. Due to space constraints, here are examples on static and temporal motifs in the following figure, and refer interested readers to the paper for further detail.
