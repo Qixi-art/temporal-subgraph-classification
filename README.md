@@ -49,9 +49,10 @@ Using 10-fold CV Grid Search we look for the best hyperparameters for each model
 ![Results](https://github.com/ZafirStojanovski/temporal-subgraph-classification/blob/master/results.png "Results") 
 
 ## Conclusion
-From the plots, we can confirm our hypothesis: for "sparse" temporal networks (ones that have fewer interactions between the nodes in a fixed time window) like the E-mail one, the method of windowing improved our model performance up to **20%**.  
-This is because the process of motif construction in the network spans more than the defined time-frame so the windowing technique managed to capture more context from its neighbors.  
-On the other hand, for "dense" temporal networks like the Stack Exchange one, the windowing technique had a modest improvement of **5-8%**. This is due to the fact that its motifs mostly occur in the specified time-window and only small amount of information can be extracted from the neighboring windows.  
+From the plots, we can confirm our hypothesis: for "sparse" temporal networks (ones that have fewer interactions between the nodes in a fixed time window) like the E-mail one, the method of windowing improved our model performance up to **20%**. This is because the process of motif construction in the network spans more than the defined time-frame so the windowing technique managed to capture more context from its neighbors.   
+
+On the other hand, for "dense" temporal networks like the Stack Exchange one, the windowing technique had a modest improvement of **5-8%**. This is due to the fact that its motifs mostly occur in the specified time-window and only small amount of information can be extracted from the neighboring windows.   
+
 Meaningful e-mail communication usually doesn't occur in just one day (delta value of our time frame), so that is why windowing the timeframes improved our accuracy so much - we were able to capture much more context of the communication between the employees in the department, thus increasing the number of motif formations.  
 On the other hand, Stack Exchange discussions are rarely revisited after the day they were originally posted, so that is why we achieved such modest improvements by windowing the timeframes.  
 
