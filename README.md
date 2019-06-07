@@ -54,3 +54,5 @@ This is because the process of motif construction in the network spans more than
 On the other hand, for "dense" temporal networks like the Stack Exchange one, the windowing technique had a modest improvement of 5-8%. This is due to the fact that its motifs mostly occur in the specified time-window and only small amount of information can be extracted from the neighboring windows.  
 Meaningful e-mail communication usually doesn't occur in just one day (delta value of our time frame), so that is why windowing the timeframes improved our accuracy so much - we were able to capture much more context of the communication between the employees in the department, thus increasing the number of motif formations.  
 On the other hand, Stack Exchange discussions are rarely revisited after the day they were originally posted, so that is why we achieved such modest improvements by windowing the timeframes.  
+
+I refer the reader to go through the jupyer notebooks provided in this repo in order to get better sense of the workflow and the results.
