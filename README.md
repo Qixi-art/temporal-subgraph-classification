@@ -1,4 +1,4 @@
-# Temporal subgraph classification
+# Temporal Subgraph Classification
 Network classification has a significant role in detecting communities and recognizing patterns within the networks.  
 Most existing work in this area heavily focuses on embedding the networks, without providing much information on the best way of sampling it into subgraphs in the first place.  
 
