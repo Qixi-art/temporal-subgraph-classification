@@ -29,6 +29,7 @@ From here, I build 2 datasets:
 
 The first alternative can hurt model performance in a sense that it loses sense of context temporality as a result of the discretization performed on the graph - any information about recent previous interactions is lost.
 However, the second alternative will produce samples with more context - what was happening in the previous two time-frames.  
+Not only that, but we preserve the overall number of samples in the dataset - if we were to only concatenate each triplet of time-windows without overlapping, we would end up with samples that have as much temporal context as the second alternative, but the resulting dataset would have 3 times less samples than the one produced in the second alternative, which will definitely affect the models since we're already dealing with limited number of samples.
 
 ## 3. Embedding
 Now that we have defined what our samples are, we need to embed them - transform them into vectors.  
