@@ -23,13 +23,12 @@ A fairly reasonable way to partition the network is to break it into time-window
 Simply put, I first sort the network (which is a list of timestamped edges) by the timestamp value and then form time-windows that span 24-hour period (our choice of delta).
 From here, I build 2 datasets:  
 * each sample is a single window
-* each sample is a concatenation of itself and its two neighboring windows
+* each sample is a concatenation of itself and its previous two windows
 
 ![Alternate ways of sampling](https://github.com/ZafirStojanovski/temporal-subgraph-classification/blob/master/btr.png "Alternate ways of sampling")  
 
-The first alternative can hurt model performance in a sense that it loses sense of context temporality as a result of the discretization performed on the graph - any information in the neighboring time-frames is lost.
-However, the second alternative will produce samples with more context - what was happening in the previous time-frame and what is going on in the future time-frame.  
-Not only that, but we preserve the overall number of samples in the dataset - if we were to only concatenate each triplet of time-windows without overlapping, we would end up with samples that have as much temporal context as the second alternative, but the resulting dataset would have 3 times less samples than the one produced in the second alternative, which will definitely affect the models since we're already dealing with limited number of samples.  
+The first alternative can hurt model performance in a sense that it loses sense of context temporality as a result of the discretization performed on the graph - any information about recent previous interactions is lost.
+However, the second alternative will produce samples with more context - what was happening in the previous two time-frames.  
 
 ## 3. Embedding
 Now that we have defined what our samples are, we need to embed them - transform them into vectors.  
@@ -47,9 +46,9 @@ Using 10-fold CV Grid Search we look for the best hyperparameters for each model
 ![Results](https://github.com/ZafirStojanovski/temporal-subgraph-classification/blob/master/results.png "Results") 
 
 ## Conclusion
-From the plots, we can confirm our hypothesis: for "sparse" temporal networks (ones that have fewer interactions between the nodes in a fixed time window) like the E-mail one, the method of windowing improved our model performance up to **20%**. This is because the process of motif construction in the network spans more than the defined time-frame so the windowing technique managed to capture more context from its neighbors.   
+From the plots, we can confirm our hypothesis: for "sparse" temporal networks (ones that have fewer interactions between the nodes in a fixed time window) like the E-mail one, the method of windowing improved our model performance up to **20%**. This is because the process of motif construction in the network spans more than the defined time-frame so the windowing technique managed to capture more context from its predecessors.   
 
-On the other hand, for "dense" temporal networks like the Stack Exchange one, the windowing technique had a modest improvement of **5-8%**. This is due to the fact that its motifs mostly occur in the specified time-window and only small amount of information can be extracted from the neighboring windows.   
+On the other hand, for "dense" temporal networks like the Stack Exchange one, the windowing technique had a modest improvement of **5-8%**. This is due to the fact that its motifs mostly occur in the specified time-window and only small amount of information can be extracted from the predecessor windows.   
 
 Meaningful e-mail communication usually doesn't occur in just one day (delta value of our time frame), so that is why windowing the timeframes improved our accuracy so much - we were able to capture much more context of the communication between the employees in the department, thus increasing the number of motif formations.  
 On the other hand, Stack Exchange discussions are rarely revisited after the day they were originally posted, so that is why we achieved such modest improvements by windowing the timeframes.  
